@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Response
 {
-    public class EvenParticipantInfoDto
+    public class EventParticipantInfoDto
     {
         public int Id { get; set; }
         public int UserId { get; set; }

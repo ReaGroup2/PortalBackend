@@ -20,6 +20,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.IsDeleted).IsRequired();
         builder.Property(x=>x.IsMale).IsRequired();
         builder.Property(x=>x.Phone).IsRequired();
+        builder.Property(x=>x.ImagePath).IsRequired();
 
 
         builder.HasMany(u => u.CreatedEvents)

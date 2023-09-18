@@ -26,5 +26,5 @@ public enum UserType
 {
     Admin,
     Organizator,
-    User
+    Member
 }
