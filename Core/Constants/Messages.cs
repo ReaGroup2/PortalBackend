@@ -13,4 +13,12 @@ public static class Messages
     public const string EmailAlreadyTaken = "Bu Email Zaten Alınmış";
     public const string UserNameAlreadyTaken = "Bu Kullanıcı Adı Zaten Alınmış";
     public const string UserNameOrPasswordWrong = "Kullanıcı Adı veya Şifre Yanlış";
+
+    //SUCCESS
+    public const string SuccessfullyCreatedEntity = "Kayıt başarıyla oluşturuldu";
+    public const string SuccessfullyUpdatedEntity = "Kayıt başarıyla güncellendi";
+    public const string SuccessfullyDeletedEntity = "Kayıt başarıyla silindi";
+
+    //FILE UPLOAD
+    public const string InvalidFileFormat = "Geçersiz dosya türü";
 }
