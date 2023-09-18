@@ -17,9 +17,14 @@ public class PostgresContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        
+
         modelBuilder.ApplyConfiguration(new UserConfiguration());
         modelBuilder.ApplyConfiguration(new UserTokenConfiguration());
+        modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new CommentLikeConfiguration());
+        modelBuilder.ApplyConfiguration(new CommentConfiguration());
+        modelBuilder.ApplyConfiguration(new EventConfiguration());
+        modelBuilder.ApplyConfiguration(new EventParticipantConfiguration());
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,6 +37,11 @@ public class PostgresContext : DbContext
         }
     }
 
-    public DbSet<User> User => Set<User>();
+    public DbSet<Category> Categories => Set<Category>();
+    public DbSet<Event> Events => Set<Event>();
+    public DbSet<EventParticipant> EventsParticipants => Set<EventParticipant>();
+    public DbSet<Comment> Comments => Set<Comment>();
+    public DbSet<CommentLike> CommentLikes => Set<CommentLike>();
+    public DbSet<User> Users => Set<User>();
     public DbSet<UserToken> UserTokens => Set<UserToken>();
 }

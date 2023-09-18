@@ -1,4 +1,5 @@
 ﻿using Business.Models.Request;
+using Business.Models.Request.Functional;
 using FluentValidation;
 
 namespace Business.Utilities.Validation;

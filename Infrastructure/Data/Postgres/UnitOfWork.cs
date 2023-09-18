@@ -22,6 +22,16 @@ public class UnitOfWork : IUnitOfWork
     public IUserRepository Users => _userRepository ??= new UserRepository(_postgresContext);
     public IUserTokenRepository UserTokens => _userTokenRepository ??= new UserTokenRepository(_postgresContext);
 
+    public ICategoryRepository Categories => throw new NotImplementedException();
+
+    public ICommentRepository Comments => throw new NotImplementedException();
+
+    public ICommentLikeRepository CommentLikes => throw new NotImplementedException();
+
+    public IEventRepository Events => throw new NotImplementedException();
+
+    public IEventParticipantRepository EventParticipants => throw new NotImplementedException();
+
     public async Task<int> CommitAsync()
     {
         var updatedEntities = _postgresContext.ChangeTracker.Entries<IEntity>()

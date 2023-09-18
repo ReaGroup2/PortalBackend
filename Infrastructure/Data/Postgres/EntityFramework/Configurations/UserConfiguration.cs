@@ -18,5 +18,29 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.PasswordSalt).IsRequired();
         builder.Property(x => x.CreatedAt).IsRequired();
         builder.Property(x => x.IsDeleted).IsRequired();
+        builder.Property(x=>x.IsMale).IsRequired();
+        builder.Property(x=>x.Phone).IsRequired();
+
+
+        builder.HasMany(u => u.CreatedEvents)
+        .WithOne(e => e.Creator)
+        .HasForeignKey(e => e.CreatorId);
+
+        //builder.HasMany(u => u.EventParticipants)
+        // .WithOne(eP => eP.User)
+        // .HasForeignKey(eP => eP.UserId);
+
+        builder.HasMany(u => u.Comments)
+         .WithOne(c => c.User)
+         .HasForeignKey(b => b.UserId);
+
+        builder.HasMany(u => u.CommentLikes)
+         .WithOne(cL => cL.User)
+         .HasForeignKey(cL => cL.UserId);
+
+
+        builder.HasMany<Event>(u => u.AttendedEvents)
+            .WithMany(e => e.Users)
+            .UsingEntity<EventParticipant>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Models.Request;
+using Business.Models.Request.Functional;
 using Business.Models.Response;
 using Business.Services.Interface;
 using Business.Utilities.Mapping.Interface;
