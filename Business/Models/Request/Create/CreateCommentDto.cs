@@ -8,7 +8,7 @@ namespace Business.Models.Request.Create
 {
     public class CreateCommentDto
     {
-        public int Id { get; set; }
+      
         public string Description { get; set; } = default!;
         //public int LikeCount { get; set; } = 0;
         public int EventId { get; set; } = default!;

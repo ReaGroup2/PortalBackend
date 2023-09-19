@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.Data.Postgres.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Business.Models.Request.Functional
         public string Phone { get; set; } = default!;//
         public bool IsMale { get; set; } = default!;
         public string ImagePath { get; set; } = default!;//buna eğer resim girilmezse default foto
+        public UserType UserType { get; set; }
        
     }
 }

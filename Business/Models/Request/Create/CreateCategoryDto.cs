@@ -8,7 +8,6 @@ namespace Business.Models.Request.Create
 {
    public class CreateCategoryDto
     {
-        public int Id { get; set; }
         public string CategoryName { get; set; }
     }
 }
