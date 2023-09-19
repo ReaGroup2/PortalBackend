@@ -24,15 +24,17 @@ public class Profiles : AutoMapper.Profile
 
         //Comments
         CreateMap<CreateCommentDto, Comment>();
-        CreateMap<CommentUpdate,Comment>();
+        CreateMap<CommentUpdateDto,Comment>();
         CreateMap<Comment, CommentInfoDto>();
 
         //CommentLikes
         CreateMap<CreateCommentLikeDto, CommentLike>();
+        CreateMap<CommentLikeUpdateDto, CommentLike>();//içi boş
         CreateMap<CommentLike, CommentLikeInfoDto>();
 
         //EventParticipants
         CreateMap<CreateEventParticipantDto,EventParticipant>();
+        CreateMap<EventParticipantUpdateDto,EventParticipant>();
         CreateMap<EventParticipant,EventParticipantInfoDto>();
 
         //Categories

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Models.Request.Update
 {
-    public class CommentUpdate
+    public class CommentUpdateDto
     {
         public string Description { get; set; } = default!;
         //public int LikeCount { get; set; } = 0;

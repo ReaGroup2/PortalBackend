@@ -13,6 +13,11 @@ public class UnitOfWork : IUnitOfWork
 
     private UserRepository? _userRepository;
     private UserTokenRepository? _userTokenRepository;
+    private EventRepository? _eventRepository;
+    private CategoryRepository? _categoryRepository;
+    private CommentRepository? _commentsRepository;
+    private EventParticipantRepository? _eventParticipantRepository;
+    private CommentLikeRepository? _commentLikeRepository;
 
     public UnitOfWork(PostgresContext postgresContext)
     {
@@ -22,15 +27,16 @@ public class UnitOfWork : IUnitOfWork
     public IUserRepository Users => _userRepository ??= new UserRepository(_postgresContext);
     public IUserTokenRepository UserTokens => _userTokenRepository ??= new UserTokenRepository(_postgresContext);
 
-    public ICategoryRepository Categories => throw new NotImplementedException();
 
-    public ICommentRepository Comments => throw new NotImplementedException();
+    public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(_postgresContext);
 
-    public ICommentLikeRepository CommentLikes => throw new NotImplementedException();
+    public ICommentRepository Comments => _commentsRepository ??= new CommentRepository(_postgresContext);
 
-    public IEventRepository Events => throw new NotImplementedException();
+    public ICommentLikeRepository CommentLikes => _commentLikeRepository ??= new CommentLikeRepository(_postgresContext);
 
-    public IEventParticipantRepository EventParticipants => throw new NotImplementedException();
+    public IEventRepository Events => _eventRepository ??= new EventRepository(_postgresContext);
+
+    public IEventParticipantRepository EventParticipants => _eventParticipantRepository ??= new EventParticipantRepository(_postgresContext);
 
     public async Task<int> CommitAsync()
     {
