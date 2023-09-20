@@ -199,7 +199,8 @@ namespace Infrastructure.Data.Postgres.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "EventId")
+                        .IsUnique();
 
                     b.ToTable("EventsParticipants");
                 });

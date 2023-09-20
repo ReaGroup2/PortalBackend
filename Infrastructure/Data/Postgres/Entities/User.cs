@@ -13,7 +13,7 @@ public class User : Entity<int>
     public bool IsMale { get; set; } = default!;
     public byte[] PasswordSalt { get; set; } = default!;
     public byte[] PasswordHash { get; set; } = default!;
-    public UserType UserType { get; set; }
+    public UserType UserType { get; set; } = UserType.Member;
 
     public IList<Event> CreatedEvents { get; set; }
     public IList<Event> AttendedEvents { get; set; }

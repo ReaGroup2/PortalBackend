@@ -86,7 +86,7 @@ public class AuthService : IAuthService
             return new DataResult<Utilities.Security.Auth.Jwt.Token>(message: validationError, status: ResultStatus.Invalid);
         }
 
-        var user = await _unitOfWork.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.UserName);
+        var user = await _unitOfWork.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email);
 
         if (user == null || !_hashingHelper.VerifyPasswordHash(loginDto.Password, user.PasswordHash, user.PasswordSalt))
         {

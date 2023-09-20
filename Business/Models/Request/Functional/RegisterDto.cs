@@ -16,7 +16,7 @@ namespace Business.Models.Request.Functional
         public string Phone { get; set; } = default!;//
         public bool IsMale { get; set; } = default!;
         public string ImagePath { get; set; } = default!;//buna eğer resim girilmezse default foto
-        public UserType UserType { get; set; }
+        //public UserType UserType { get; set; } 
        
     }
 }

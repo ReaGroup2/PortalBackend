@@ -2,8 +2,10 @@
 using Business.Services.Base;
 using Business.Services.Interface;
 using Business.Utilities.Mapping.Interface;
+using Core.Results;
 using Infrastructure.Data.Postgres;
 using Infrastructure.Data.Postgres.Entities;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,7 @@ namespace Business.Services
     {
         public EventParticipantService(IUnitOfWork unitOfWork, IMapperHelper mapperHelper) : base(unitOfWork, unitOfWork.EventParticipants, mapperHelper)
         {
+            
         }
     }
 }

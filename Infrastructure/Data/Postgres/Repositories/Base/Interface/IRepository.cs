@@ -19,4 +19,5 @@ public interface IRepository<TEntity, in TId> where TEntity : class
     void UntrackEntity(TEntity entity);
     void Update(TEntity entity);
     void UpdateRange(IEnumerable<TEntity> entities);
+
 }

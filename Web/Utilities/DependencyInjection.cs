@@ -20,7 +20,9 @@ public static class DependencyInjection
         serviceCollection.AddScoped<IAuthService, AuthService>();
         serviceCollection.AddScoped<IUserService, UserService>();
         serviceCollection.AddScoped<IEventService, EventService>();
+        serviceCollection.AddScoped<IEventParticipantService, EventParticipantService>();
         serviceCollection.AddScoped<ICommentService, CommentService>();
+        serviceCollection.AddScoped<ICommentLikeService, CommentLikeService>();
         serviceCollection.AddScoped<ICategoryService, CategoryService>();
     }
 

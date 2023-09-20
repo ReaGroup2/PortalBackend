@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Data.Postgres.Migrations
 {
     [DbContext(typeof(PostgresContext))]
-    [Migration("20230918103036_Initial")]
-    partial class Initial
+    [Migration("20230920100108_edit_conf_EventParticipant")]
+    partial class edit_conf_EventParticipant
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -202,7 +202,8 @@ namespace Infrastructure.Data.Postgres.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "EventId")
+                        .IsUnique();
 
                     b.ToTable("EventsParticipants");
                 });

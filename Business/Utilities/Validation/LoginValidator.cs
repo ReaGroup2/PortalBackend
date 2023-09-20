@@ -8,7 +8,7 @@ public class LoginValidator : AbstractValidator<LoginDto>
 {
     public LoginValidator()
     {
-        RuleFor(x => x.UserName).NotEmpty().WithName("Kullanıcı Adı");
+        RuleFor(x => x.Email).NotEmpty().WithName("Kullanıcı Adı");
         RuleFor(x => x.Password).NotEmpty().WithName("Şifre");
     }
 }
