@@ -28,7 +28,7 @@ public class AuthController : BaseController
         => await _authService.Register(registerDto);
 
     [HttpGet]
-    [Authorize]
+  
     public async Task<ActionResult<DataResult<UserProfileDto>>> GetProfileInfo()
         => await _authService.GetUserProfileInfo();
 
