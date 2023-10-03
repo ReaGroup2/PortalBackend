@@ -17,6 +17,8 @@ namespace Infrastructure.Data.Postgres.Entities
         public DateTime StartDate { get; set; } = default!;
         public DateTime FinishDate { get; set; } = default!;
         public bool IsActive { get; set; } = true;
+
+
         public int CreatorId { get; set; }
         public User Creator { get; set; }
         public byte Limit { get; set; }= default!;
