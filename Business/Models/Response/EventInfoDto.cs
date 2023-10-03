@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Infrastructure.Data.Postgres.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,9 @@ namespace Business.Models.Response
         public DateTime FinishDate { get; set; } = default!;
         public bool IsActive { get; set; } = true;
         public int CreatorId { get; set; }
-        public byte Limit { get; set; } = default!;
+        
+		public CategoryInfoDto Category { get; set; }
+		public byte Limit { get; set; } = default!;
+           
     }
 }
