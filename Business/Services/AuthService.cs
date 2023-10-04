@@ -128,7 +128,7 @@ public class AuthService : IAuthService
 
         var jwtToken = _jwtTokenHelper.CreateAccessToken(token.User, newRefreshToken.Token);
 
-        _unitOfWork.UserTokens.RemoveAsync(token);
+        await _unitOfWork.UserTokens.RemoveAsync(token);
 
         await _unitOfWork.UserTokens.AddAsync(newRefreshToken);
 
