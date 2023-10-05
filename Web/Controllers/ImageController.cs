@@ -51,9 +51,15 @@ namespace Web.Controllers
 		public IActionResult GetImage(string resimKimlik)
 		{
 			// resimKimlik kullanarak ilgili resmi klasörden bulun ve istemciye döndürün
-			string resimYolu = Path.Combine("uploads", resimKimlik);
-			byte[] resimBytes = System.IO.File.ReadAllBytes(resimYolu);
-			return File(resimBytes, "image/jpeg"); // Resim türünü uygun şekilde ayarlayın
+			try {
+                string resimYolu = Path.Combine("uploads", resimKimlik);
+                byte[] resimBytes = System.IO.File.ReadAllBytes(resimYolu);
+                return File(resimBytes, "image/jpeg"); // Resim türünü uygun şekilde ayarlayın
+            }
+            catch (Exception ex)
+			{
+                return StatusCode(500, $"Sunucu hatası: {ex.Message}");
+            }
 		}
 	}
 }
