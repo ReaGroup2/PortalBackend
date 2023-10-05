@@ -19,9 +19,12 @@ namespace Business.Models.Response
         public DateTime FinishDate { get; set; } = default!;
         public bool IsActive { get; set; } = true;
         public int CreatorId { get; set; }
-        
-		public CategoryInfoDto Category { get; set; }
 		public byte Limit { get; set; } = default!;
+
+		public CategoryInfoDto Category { get; set; }
+        public UserProfileDto Creator { get; set; }
+
+		
            
     }
 }

@@ -31,6 +31,7 @@ namespace Infrastructure.Data.Postgres.Repositories
 			//İlişkiler arasındaki iletişimi sağlar
 			var events = await eventsQuery
 				.Include(r => r.Category)
+				.Include(r => r.Creator)
 				
 				.ToListAsync();
 
