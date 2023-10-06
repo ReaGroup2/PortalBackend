@@ -10,7 +10,8 @@ namespace Business.Models.Response
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-
         public int CommentId { get; set; }
+        public UserProfileDto User { get; set; }
+        public CommentInfoDto Comment { get; set; }
     }
 }
