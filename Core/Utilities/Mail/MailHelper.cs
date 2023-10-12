@@ -12,48 +12,53 @@ namespace Core.Utilities.Mail;
 
 public class MailHelper : IMailHelper
 {
-    private readonly string _host;
-    private readonly int _port;
-    
-    private readonly string _from;
 
-    private readonly SmtpClient _smtpClient;
 
-    public MailHelper(IConfiguration configuration)
-    {
-        _host = configuration["Smtp:Host"];
-        _port = int.Parse(configuration["Smtp:Port"]);
+	private readonly SmtpClient _smtpClient;
 
-        _from = configuration["Smtp:From"];
+	public MailHelper(IConfiguration configuration)
+	{
 
-        _smtpClient = new SmtpClient();
-    }
 
-    public async Task SendMailAsync(string subject, string body, string recepients)
-    {
-        try
-        {
-            await _smtpClient.ConnectAsync(host: _host, port: _port, useSsl: false);
+		_smtpClient = new SmtpClient();
+	}
 
-            var email = new MimeMessage();
+	public async Task SendMailAsync(string subject, string body, string recepients)
+	{
+		try
+		{
+			await _smtpClient.ConnectAsync("smtp.gmail.com", 587, false);
 
-            email.From.Add(MailboxAddress.Parse(_from));
-            email.To.AddRange(InternetAddressList.Parse(recepients));
+			_smtpClient.Authenticate("ilkersenel5797@gmail.com", "llivmcyhscticozu");
 
-            email.Subject = subject;
-            email.Body = new TextPart(TextFormat.Plain) { Text = body };
+			var email = new MimeMessage();
 
-            await _smtpClient.SendAsync(email);
-        }
-        catch (Exception)
-        {
-        }
-        finally
-        {
-            if (_smtpClient.IsConnected)
-            {
-                await _smtpClient.DisconnectAsync(true);
-            }
-        }
-    }
+			email.From.Add(MailboxAddress.Parse("ilkersenel5797@gmail.com"));
+			email.To.AddRange(InternetAddressList.Parse(recepients));
+
+			email.Subject = subject;
+			email.Body = new TextPart(TextFormat.Plain) { Text = body };
+
+			await _smtpClient.SendAsync(email);
+		}
+		catch (Exception)
+		{
+
+			;
+		}
+		finally 
+		{
+			if (_smtpClient.IsConnected)
+			{
+				await _smtpClient.DisconnectAsync(true);
+			}
+		}
+
+
+
+	
+
+
+
+	}
 }

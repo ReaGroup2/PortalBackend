@@ -17,6 +17,6 @@ namespace Business.Models.Request.Update
         public string ImagePath { get; set; } = default!;
         public bool IsMale { get; set; } = default!;
         public UserType UserType { get; set; }
-        public string Password { get; set; }
+       
     }
 }
