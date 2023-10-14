@@ -18,16 +18,16 @@ namespace YourNamespace.Controllers
 
 		[HttpPost]
 		public async Task<IActionResult> SendEmail([FromBody] EmailModel model)
-		{
+			{
 			try
 			{
 				// E-posta gönderme işlemini burada gerçekleştirin
 				await _mailHelper.SendMailAsync(model.Subject, model.Body, model.Recepients);
-				return Ok("eposta gönderildi");
+				return Ok();
 			}
 			catch (Exception ex)
 			{
-				return BadRequest("E-posta gönderme hatasıdır: " + ex.Message);
+				return BadRequest();
 			}
 		}
 	}

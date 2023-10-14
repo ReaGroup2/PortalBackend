@@ -15,6 +15,7 @@ public class Profiles : AutoMapper.Profile
         //Users
         CreateMap<RegisterDto, User>();       
         CreateMap<UserUpdateDto, User>();
+        CreateMap<ChangePasswordDto, User>();
         CreateMap<User, UserProfileDto>();
 
         //Events

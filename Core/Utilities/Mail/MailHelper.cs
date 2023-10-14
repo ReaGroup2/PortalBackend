@@ -25,40 +25,37 @@ public class MailHelper : IMailHelper
 
 	public async Task SendMailAsync(string subject, string body, string recepients)
 	{
-		try
+		if (_smtpClient.IsConnected)
 		{
-			await _smtpClient.ConnectAsync("smtp.gmail.com", 587, false);
-
-			_smtpClient.Authenticate("ilkersenel5797@gmail.com", "llivmcyhscticozu");
-
-			var email = new MimeMessage();
-
-			email.From.Add(MailboxAddress.Parse("ilkersenel5797@gmail.com"));
-			email.To.AddRange(InternetAddressList.Parse(recepients));
-
-			email.Subject = subject;
-			email.Body = new TextPart(TextFormat.Plain) { Text = body };
-
-			await _smtpClient.SendAsync(email);
-		}
-		catch (Exception)
-		{
-
-			;
-		}
-		finally 
-		{
-			if (_smtpClient.IsConnected)
-			{
-				await _smtpClient.DisconnectAsync(true);
-			}
+			await _smtpClient.DisconnectAsync(true);
 		}
 
+		await _smtpClient.ConnectAsync("smtp.gmail.com", 587, false);
 
+		_smtpClient.Authenticate("ilkersenel5797@gmail.com", "llivmcyhscticozu");
 
-	
+		var email = new MimeMessage();
 
+		email.From.Add(MailboxAddress.Parse("ilkersenel5797@gmail.com"));
+		email.To.AddRange(InternetAddressList.Parse(recepients));
 
+		email.Subject = subject;
+		email.Body = new TextPart(TextFormat.Plain) { Text = body };
 
+		await _smtpClient.SendAsync(email);
+
+		if (_smtpClient.IsConnected)
+		{
+			await _smtpClient.DisconnectAsync(true);
+		}
 	}
+
+
+
+
+
+
+
+
 }
+

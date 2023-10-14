@@ -12,4 +12,5 @@ public class UserProfileDto
     public string ImagePath { get; set; } = default!;
     public bool IsMale { get; set; } = default!;
     public UserType UserType { get; set; }
+	
 }
