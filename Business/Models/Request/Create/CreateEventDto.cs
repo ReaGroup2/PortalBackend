@@ -10,7 +10,7 @@ namespace Business.Models.Request.Create
     {
         
         public int CategoryId { get; set; } = default!;
-        public string ImagePath { get; set; } = default;
+        public string ImagePath { get; set; } = default!;
         public string Title { get; set; } = default!;
         public string Description { get; set; } = default!;
         public DateTime StartDate { get; set; } = default!;

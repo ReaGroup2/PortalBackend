@@ -32,6 +32,9 @@ namespace Infrastructure.Data.Postgres.Repositories
 			var eP = await ePQuery
 				.Include(eP => eP.User)
 				.Include(eP=>eP.Event)
+				.Include(eP=>eP.Event.Category)
+		
+				
 
 				.ToListAsync();
 
