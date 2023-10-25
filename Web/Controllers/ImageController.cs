@@ -5,11 +5,7 @@ namespace Web.Controllers
 	[ApiController]
 	[Route("api/[controller]/[action]")]
 	public class ImageController : ControllerBase
-	{
-
-
-
-		
+	{		
 		private readonly string uploadFolderPath = "uploads"; // Resimlerin kaydedileceği klasörü belirtin
 
 		[HttpPost]
@@ -46,6 +42,29 @@ namespace Web.Controllers
 				return StatusCode(500, $"Sunucu hatası: {ex.Message}");
 			}
 		}
+		[HttpDelete]
+		public IActionResult DeleteImage(string resimKimlik)
+		{
+			try
+			{
+				string resimYolu = Path.Combine("uploads", resimKimlik);
+
+				if (System.IO.File.Exists(resimYolu))
+				{
+					System.IO.File.Delete(resimYolu);
+					return Ok("Resim başarıyla silindi.");
+				}
+				else
+				{
+					return NotFound("Belirtilen resim bulunamadı.");
+				}
+			}
+			catch (Exception ex)
+			{
+				return StatusCode(500, $"Sunucu hatası: {ex.Message}");
+			}
+		}
+
 
 		[HttpGet]
 		public IActionResult GetImage(string resimKimlik)
